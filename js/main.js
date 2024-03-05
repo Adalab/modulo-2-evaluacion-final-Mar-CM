@@ -7,6 +7,8 @@ const seriesList = document.querySelector('.js-list-series');
 const buttonReset = document.querySelector('.js-reset');
 const containerFavSeries = document.querySelector('.js-list-series-fav');
 
+let favoriteSeries = [];
+
 // Función que busca las series, incluye condicional y favoritos ya que solo podemos añadir fav cuando se pintan en la web.
 function renderAnime(animesList){
     console.log(animesList);
@@ -36,7 +38,6 @@ function renderAnime(animesList){
     
 };
 
-
 //Evento sobre botón buscar - pediremos al servidor datos al clickar buscar.
 function handleSearch(event){
     event.preventDefault();
@@ -55,8 +56,6 @@ function handleSearch(event){
     }
 }
 
-let favoriteSeries = [];
-
 // Función de favoritos y guardar en localstorage
 function handleAddFav(event) {
     const favAnime = event.currentTarget.innerHTML;
@@ -65,25 +64,23 @@ function handleAddFav(event) {
     // Buscar si el elemento seleccionado ya existe en favoritos
     if (!favoriteSeries.includes(favAnime)) {
         favoriteSeries.push(favAnime);
-
-        // Agregar el nuevo elemento a containerFavSeries
         containerFavSeries.innerHTML += `
             <li class="fav-series">
                 ${favAnime}
                 <button class="close">X</button>
             </li>`;
-
         // Cambiar el fondo de la serie seleccionada
-        event.currentTarget.style.backgroundColor = 'greenyellow';
+        event.currentTarget.style.backgroundColor = '#00FFFF';
     }
 
-    // //Obtenemos la lista de fav del local
-    // const storedFavorites = localStorage.getItem('favoritos');
-    // const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-    // //Agregamos nuevo fav al array
-    // favorites.push(favAnime);
-    // // Guardar la lista actualizada en el localStorage
-    // localStorage.setItem('favoritos', JSON.stringify(favorites));
+
+    //Obtenemos la lista de fav del local
+    const storageFavorites = localStorage.getItem('favoritos');
+    const favorites = storageFavorites ? JSON.parse(storageFavorites) : [];
+    //Agregamos nuevo fav al array
+    favorites.push(favAnime);
+    // Guardar la lista actualizada en el localStorage
+    localStorage.setItem('favoritos', JSON.stringify(favorites));
 }
 
 //Evento sobre el botón reset - borrará todo el contenido
