@@ -33,6 +33,7 @@ function renderAnime(animesList){
     for (const favorite of seriesFav){
         favorite.addEventListener('click', handleAddFav)
     };
+    
 };
 
 
