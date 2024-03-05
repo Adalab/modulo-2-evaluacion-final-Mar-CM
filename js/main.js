@@ -9,6 +9,22 @@ const containerFavSeries = document.querySelector('.js-list-series-fav');
 
 let favoriteSeries = [];
 
+// No borra las series favoritas almacenadas en el localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    const storedFavoriteSeries = localStorage.getItem('favoriteSeries');
+    if (storedFavoriteSeries) {
+        favoriteSeries = JSON.parse(storedFavoriteSeries);
+
+        // Renderizar las series favoritas en el contenedor
+        containerFavSeries.innerHTML = favoriteSeries.map(series => `
+            <li class="fav-series">
+                ${series}
+                <button class="close">X</button>
+            </li>
+        `).join('');
+    }
+});
+
 // Función que busca las series, incluye condicional y favoritos ya que solo podemos añadir fav cuando se pintan en la web.
 function renderAnime(animesList){
     console.log(animesList);
@@ -56,6 +72,12 @@ function handleSearch(event){
     }
 }
 
+function handleDeleteFav(favAnime){
+    console.log('click');
+    
+
+}
+
 // Función de favoritos y guardar en localstorage
 function handleAddFav(event) {
     const favAnime = event.currentTarget.innerHTML;
@@ -64,30 +86,33 @@ function handleAddFav(event) {
     // Buscar si el elemento seleccionado ya existe en favoritos
     if (!favoriteSeries.includes(favAnime)) {
         favoriteSeries.push(favAnime);
+
+        // Almacenar los datos una vez que los incluimos en favoritos
+        localStorage.setItem('favoriteSeries', JSON.stringify(favoriteSeries));
+
         containerFavSeries.innerHTML += `
             <li class="fav-series">
                 ${favAnime}
-                <button class="close">X</button>
+                <button class="close js-close-fav">X</button>
             </li>`;
         // Cambiar el fondo de la serie seleccionada
         event.currentTarget.style.backgroundColor = 'white';
         event.currentTarget.style.color = '#A1767A';
     }
 
-
-    //Obtenemos la lista de fav del local
-    const storageFavorites = localStorage.getItem('favoritos');
-    const favorites = storageFavorites ? JSON.parse(storageFavorites) : [];
-    //Agregamos nuevo fav al array
-    favorites.push(favAnime);
-    // Guardar la lista actualizada en el localStorage
-    localStorage.setItem('favoritos', JSON.stringify(favorites));
+    const buttonDeleteFav = document.querySelector('.js-close-fav');
+    buttonDeleteFav.addEventListener('click', handleDeleteFav);
 }
 
 //Evento sobre el botón reset - borrará todo el contenido
 function handleReset(){
     seriesList.innerHTML = "";
+    containerFavSeries.innerHTML = "";
+    favoriteSeries = [];
     const nameInput = "";
+
+    // Eliminamos del local los datos tmb al dar a reset
+    localStorage.removeItem('favoriteSeries')
 }
 
 buttonReset.addEventListener('click', handleReset);

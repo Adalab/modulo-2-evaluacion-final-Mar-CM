@@ -24,6 +24,7 @@ body {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .form__button--reset{
@@ -33,6 +34,7 @@ body {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .name {
