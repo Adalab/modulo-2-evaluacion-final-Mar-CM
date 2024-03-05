@@ -70,7 +70,8 @@ function handleAddFav(event) {
                 <button class="close">X</button>
             </li>`;
         // Cambiar el fondo de la serie seleccionada
-        event.currentTarget.style.backgroundColor = '#00FFFF';
+        event.currentTarget.style.backgroundColor = 'white';
+        event.currentTarget.style.color = '#A1767A';
     }
 
 
