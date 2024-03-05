@@ -72,7 +72,7 @@ function handleSearch(event){
     }
 }
 
-function handleDeleteFav(favAnime){
+function handleDeleteFav(){
     console.log('click');
     
 

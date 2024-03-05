@@ -144,3 +144,7 @@ body {
     border: none;
     border-radius: 50px;    
 }
+
+.hidden {
+    display: none;
+}
