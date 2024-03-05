@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/FAVICON.jpg">
     <title>Series Animes</title>
 </head>
 <body>
-    <header class="actors">
-        Buscador de series Animes
+    <header class="title">
+        <h1>Buscador de series Animes</h1>
     </header>
     <main>
         <form class="form">
             <label for="name"></label>
-            <input type="text" name="name" id="name" class="js-name name" placeholder="Ej: Naruto" class="input-name js-nameinput">
-            <input type="submit" value="Buscar" class="button-search js-search">
-            <input type="submit" value="Reset" class="button-reset js-reset">
+            <input type="text" name="name" id="name" class="js-name name" placeholder="Ej: Naruto" class="input__name js-nameinput">
+            <input type="submit" value="Buscar" class="form__button--search js-search">
+            <input type="submit" value="Reset" class="form__button--reset js-reset">
         </form>
         <div>
             <p class="js-error error"></p>
         </div>
         <div class="container">
-            <ul class="js-list-series">Resultados</ul>
-            <ul class="js-list-series-fav">Series favoritas</ul>
+            <section class="box__1">
+                <h2 class="box__title">Series favoritas</h2>
+                <div class="js-list-series-fav fav__series"></div>
+            </section>
+            <section class="box__2">
+                <h2 class="box__title">Resultados</h2>
+                <div class="js-list-series series"></div>
+            </section>
         </div>
+        
     </main>
     <script src="./js/main.js" type="text/javascript"></script>
 </body>
