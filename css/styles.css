@@ -14,11 +14,29 @@
     border-radius: 10px;
 }
 
-.search {
+.series {
     display: flex;
     flex-direction: column;
     padding: 5px;
     font-size: 16px;
     font-weight: bold;
     width: 200px;
+    border: solid 1px violet;
+}
+
+.fav-series {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 200px;
+    border: solid 1px blue;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding-top: 10px;
 }
