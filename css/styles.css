@@ -131,3 +131,13 @@ body {
     font-weight: bold;
     font-style: italic;
 }
+
+.border {
+    border: solid 1px white
+}
+
+.close {
+    padding: 8px;
+    border: none;
+    border-radius: 50px;    
+}

@@ -55,21 +55,36 @@ function handleSearch(event){
     }
 }
 
+let favoriteSeries = [];
 
-//función de favoritos y guardar en localstorage
-function handleAddFav(event){
+// Función de favoritos y guardar en localstorage
+function handleAddFav(event) {
     const favAnime = event.currentTarget.innerHTML;
-    containerFavSeries.innerHTML += `<li class= "fav-series">${favAnime}</li>`;
-    
-    //Obtenemos la lista de fav del local
-    const storedFavorites = localStorage.getItem('favoritos');
-    const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-    //Agregamos nuevo fav al array
-    favorites.push(favAnime);
-    // Guardar la lista actualizada en el localStorage
-    localStorage.setItem('favoritos', JSON.stringify(favorites));
-}
+    console.log(favAnime);
 
+    // Buscar si el elemento seleccionado ya existe en favoritos
+    if (!favoriteSeries.includes(favAnime)) {
+        favoriteSeries.push(favAnime);
+
+        // Agregar el nuevo elemento a containerFavSeries
+        containerFavSeries.innerHTML += `
+            <li class="fav-series">
+                ${favAnime}
+                <button class="close">X</button>
+            </li>`;
+
+        // Cambiar el fondo de la serie seleccionada
+        event.currentTarget.style.backgroundColor = 'greenyellow';
+    }
+
+    // //Obtenemos la lista de fav del local
+    // const storedFavorites = localStorage.getItem('favoritos');
+    // const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+    // //Agregamos nuevo fav al array
+    // favorites.push(favAnime);
+    // // Guardar la lista actualizada en el localStorage
+    // localStorage.setItem('favoritos', JSON.stringify(favorites));
+}
 
 //Evento sobre el botón reset - borrará todo el contenido
 function handleReset(){
