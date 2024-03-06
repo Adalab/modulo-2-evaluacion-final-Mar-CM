@@ -26,7 +26,6 @@ const storedFavoriteSeries = localStorage.getItem('favoriteSeries');
 
 // Función que busca las series, incluye condicional y favoritos ya que solo podemos añadir fav cuando se pintan en la web.
 function renderAnime(animesList){
-    console.log(animesList);
     seriesList.innerHTML= '';
     
     for (const anime of animesList){//Condicional, si la foto, es un url, cambiar por la otra foto, sino, dejarlo.
@@ -71,7 +70,6 @@ function handleSearch(event){
 }
 
 function handleDeleteFav(){
-    console.log('click');
     // modificar el array de series quitar elementos y luego volver a pintar. Quitar el elemento del array.
 
     //pistas: localizar la posicion del elemento del array qe ha clicado y cuando tenga la posición puedes borrarlo.
@@ -80,7 +78,6 @@ function handleDeleteFav(){
 // Función de favoritos y guardar en localstorage
 function handleAddFav(event) {
     const favAnime = event.currentTarget.innerHTML;
-    console.log(favAnime);
 
     // Buscar si el elemento seleccionado ya existe en favoritos
     if (!favoriteSeries.includes(favAnime)) {
@@ -94,7 +91,6 @@ function handleAddFav(event) {
                 ${favAnime}
                 <button class="close js-close-fav">X</button>
             </li>`;
-            console.log
         // Cambiar el fondo de la serie seleccionada
         event.currentTarget.style.backgroundColor = 'white';
         event.currentTarget.style.color = '#A1767A';
