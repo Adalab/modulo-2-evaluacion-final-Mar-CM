@@ -10,8 +10,7 @@ const containerFavSeries = document.querySelector('.js-list-series-fav');
 let favoriteSeries = [];
 
 // No borra las series favoritas almacenadas en el localStorage
-document.addEventListener('DOMContentLoaded', () => {
-    const storedFavoriteSeries = localStorage.getItem('favoriteSeries');
+const storedFavoriteSeries = localStorage.getItem('favoriteSeries');
     if (storedFavoriteSeries) {
         favoriteSeries = JSON.parse(storedFavoriteSeries);
 
@@ -22,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="close">X</button>
             </li>
         `).join('');
-    }
-});
+};
 
 // Función que busca las series, incluye condicional y favoritos ya que solo podemos añadir fav cuando se pintan en la web.
 function renderAnime(animesList){
@@ -74,6 +72,10 @@ function handleSearch(event){
 
 function handleDeleteFav(){
     console.log('click');
+    // modificar el array de series quitar elementos y luego volver a pintar. Quitar el elemento del array.
+
+    //pistas: localizar la posicion del elemento del array qe ha clicado y cuando tenga la posición puedes borrarlo.
+    
     
 
 }
