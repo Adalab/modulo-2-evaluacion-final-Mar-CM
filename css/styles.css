@@ -21,7 +21,7 @@ body {
 .form__button--search{
     border: none;
     color: black;
-    background-color: goldenrod;
+    background-color: rgb(211, 162, 36);
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
