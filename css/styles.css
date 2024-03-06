@@ -1,5 +1,6 @@
 body {
     background-color: #FEC7CD;
+
 }
 
 .title {
@@ -30,8 +31,8 @@ body {
 
 .form__button--reset{
     border: none;
-    color: white;
     background-color: red;
+    color: white;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
