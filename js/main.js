@@ -8,8 +8,6 @@ const buttonReset = document.querySelector('.js-reset');
 const containerFavSeries = document.querySelector('.js-list-series-fav');
 const buttonDeleteFav = document.querySelector('.js-delete-fav');
 
-
-
 let favoriteSeries = [];
 
 // No borra las series favoritas almacenadas en el localStorage
@@ -52,7 +50,6 @@ function renderAnime(animesList){
     for (const favorite of seriesFav){
         favorite.addEventListener('click', handleAddFav)
     };
-    
 };
 
 //Evento sobre botón buscar - pediremos al servidor datos al clickar buscar.
