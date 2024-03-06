@@ -6,6 +6,9 @@ const error = document.querySelector('.js-error');
 const seriesList = document.querySelector('.js-list-series');
 const buttonReset = document.querySelector('.js-reset');
 const containerFavSeries = document.querySelector('.js-list-series-fav');
+const buttonDeleteFav = document.querySelector('.js-delete-fav');
+
+
 
 let favoriteSeries = [];
 
@@ -75,9 +78,6 @@ function handleDeleteFav(){
     // modificar el array de series quitar elementos y luego volver a pintar. Quitar el elemento del array.
 
     //pistas: localizar la posicion del elemento del array qe ha clicado y cuando tenga la posición puedes borrarlo.
-    
-    
-
 }
 
 // Función de favoritos y guardar en localstorage
@@ -97,6 +97,7 @@ function handleAddFav(event) {
                 ${favAnime}
                 <button class="close js-close-fav">X</button>
             </li>`;
+            console.log
         // Cambiar el fondo de la serie seleccionada
         event.currentTarget.style.backgroundColor = 'white';
         event.currentTarget.style.color = '#A1767A';
@@ -114,8 +115,15 @@ function handleReset(){
     const nameInput = "";
 
     // Eliminamos del local los datos tmb al dar a reset
-    localStorage.removeItem('favoriteSeries')
+    localStorage.removeItem('favoriteSeries');
 }
 
+//Evento sobre el botón fav - elimina los fav.
+function handleClickRemoveFav() {
+    containerFavSeries.innerHTML = "";
+    localStorage.removeItem('favoriteSeries');
+}
+
+buttonDeleteFav.addEventListener('click', handleClickRemoveFav);
 buttonReset.addEventListener('click', handleReset);
 buttonSearch.addEventListener('click', handleSearch);

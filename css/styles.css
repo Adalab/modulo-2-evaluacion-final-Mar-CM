@@ -148,3 +148,13 @@ body {
 .hidden {
     display: none;
 }
+
+.button__fav {
+    border: none;
+    color: white;
+    background-color:#513136;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;  
+}
