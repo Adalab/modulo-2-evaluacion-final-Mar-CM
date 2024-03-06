@@ -1,7 +1,5 @@
 body {
-    background-image: url(/images/back5.avif);
-    background-size: cover;
-
+    background-color: #FEC7CD;
 }
 
 .title {
@@ -23,7 +21,7 @@ body {
 .form__button--search{
     border: none;
     color: black;
-    background-color:#FEC7CD;
+    background-color: goldenrod;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
